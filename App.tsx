@@ -1,80 +1,105 @@
 import * as React from 'react';
-import {Text, View} from 'react-native';
-import {NavigationContainer} from '@react-navigation/native';
-import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import {useState, useEffect} from 'react';
+import {View, Image, Text, TouchableOpacity, TextInput} from 'react-native';
 
-function Feed() {
+const App = () => {
   return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>Feed!</Text>
-    </View>
-  );
-}
-
-function Profile() {
-  return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>Profile!</Text>
-    </View>
-  );
-}
-
-function Notifications() {
-  return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>Notifications!</Text>
-    </View>
-  );
-}
-
-const Tab = createMaterialBottomTabNavigator();
-
-function MyTabs() {
-  return (
-    <Tab.Navigator
-      initialRouteName="Feed"
-      activeColor="#e91e63"
-      labelStyle={{fontSize: 12}}
-      style={{backgroundColor: 'tomato'}}>
-      <Tab.Screen
-        name="Feed"
-        component={Feed}
-        options={{
-          tabBarLabel: 'Home',
-          tabBarIcon: ({color}) => (
-            <FontAwesome5 name="home" color={color} size={26} />
-          ),
+    <View>
+      <Image
+        source={require('./src/aset/image/dowload.jpg')}
+        style={{
+          height: 140,
+          width: 140,
+          marginHorizontal: 110,
+          marginVertical: 80,
         }}
       />
-      <Tab.Screen
-        name="Notifications"
-        component={Notifications}
-        options={{
-          tabBarLabel: 'Updates',
-          tabBarIcon: ({color}) => (
-            <FontAwesome5 name="bell" color={color} size={26} />
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="Profile"
-        component={Profile}
-        options={{
-          tabBarLabel: 'Profile',
-          tabBarIcon: ({color}) => (
-            <FontAwesome5 name="account" color={color} size={26} />
-          ),
-        }}
-      />
-    </Tab.Navigator>
+      <Text
+        style={{
+          textAlign: 'center',
+          bottom: 60,
+          fontSize: 20,
+          fontWeight: 'bold',
+        }}>
+        Pendaftaran Santri Baru
+      </Text>
+      <Text
+        style={{
+          textAlign: 'center',
+          bottom: 60,
+          fontSize: 18,
+          fontWeight: 'bold',
+        }}>
+        Pp Darul Ulum II Al Wahidiyah
+      </Text>
+      <Text
+        style={{
+          textAlign: 'center',
+          marginTop: 100,
+          fontSize: 15,
+          fontWeight: 'bold',
+        }}>
+        Silahkan Masuk
+      </Text>
+      <TextInput
+        style={{
+          borderBottomRightRadius: 5,
+          width: 200,
+          height: 40,
+          backgroundColor: 'white',
+          marginHorizontal: 80,
+          marginVertical: 10,
+          borderRadius: 5,
+          borderBottomWidth: 1,
+        }}></TextInput>
+      <TextInput
+        style={{
+          borderBottomRightRadius: 5,
+          width: 200,
+          height: 35,
+          backgroundColor: 'white',
+          marginHorizontal: 80,
+          marginVertical: 10,
+          borderRadius: 5,
+          borderBottomWidth: 1,
+        }}></TextInput>
+      <TouchableOpacity
+        style={{
+          backgroundColor: 'green',
+          paddingVertical: 2,
+          width: 120,
+          height: 30,
+          marginHorizontal: 120,
+          marginVertical: 1,
+          borderRadius: 20,
+        }}>
+        <Text
+          style={{
+            textAlign: 'center',
+            fontSize: 15,
+            fontWeight: 'bold',
+            alignItems: 'center',
+            margintop: 2,
+            height: 30,
+            color: 'white',
+          }}>
+          Login
+        </Text>
+      </TouchableOpacity>
+      <TouchableOpacity>
+        <Text
+          style={{
+            textAlign: 'center',
+            width: 120,
+            marginHorizontal: 120,
+            marginTop: 50,
+            fontSize: 15,
+          }}>
+          Buat Akun Baru
+        </Text>
+      </TouchableOpacity>
+    </View>
   );
-}
+};
 
-export default function App() {
-  return (
-    <NavigationContainer>
-      <MyTabs />
-    </NavigationContainer>
-  );
-}
+export default App;
